@@ -12,8 +12,10 @@ import SignupScreen from '../features/auth/SignupScreen';
 
 const Stack = createStackNavigator();
 
+import useAuth from '../hooks/useAuth';
 const AuthStack = () => {
-  return (
+  const { user } = useAuth();
+  return Object.keys(user).length != 0 ? <MainTabs /> : (
     <Stack.Navigator screenOptions={{ headerShadowVisible: false, animationEnabled: false }}>
       <Stack.Screen name='SplashScreen' component={SplashScreen} options={{ headerShown: false }} />
       <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} options={{ headerShown: false }} />

@@ -4,7 +4,7 @@ import { SvgXml } from 'react-native-svg';
 
 // config
 import { colors, styles } from '../../config/styles'
-import { svgs } from '../../config/svgs'
+import { Logo, svgs } from '../../config/svgs'
 import { reset } from '../../navigation/RootNavigation';
 
 const SplashScreen = () => {
@@ -15,7 +15,7 @@ const SplashScreen = () => {
   }, [])
   return (
     <View style={{ ...styles.center, flex: 1, backgroundColor: colors.primary, padding: 25 }}>
-      <SvgXml xml={svgs.logo} style={{ marginBottom: 25 }} />
+      <Logo color='white' style={{ marginBottom: 25 }} />
       <Text style={styles.h1}>Chat AI: AI Chatbot</Text>
     </View>
   )

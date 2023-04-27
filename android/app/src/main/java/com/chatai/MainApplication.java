@@ -1,4 +1,4 @@
-package com.chatai;
+package com.teareview;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

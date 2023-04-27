@@ -4,7 +4,7 @@ import { SvgXml } from 'react-native-svg';
 
 // config
 import { colors, styles } from '../../config/styles'
-import { svgs } from '../../config/svgs'
+import { WelcomeIcon } from '../../config/svgs'
 import { navigate } from '../../navigation/RootNavigation';
 
 // Components
@@ -15,7 +15,7 @@ const WelcomeScreen = () => {
     return (
         <Screen margins>
             <View style={{ flex: 1, ...styles.center, justifyContent: 'flex-end', marginBottom: 25 }}>
-                <SvgXml xml={svgs.welcome} />
+                <WelcomeIcon />
             </View>
             <View style={{ flex: 1 }}>
                 <Text style={styles.h1}>Welcome to AI Chatbot</Text>

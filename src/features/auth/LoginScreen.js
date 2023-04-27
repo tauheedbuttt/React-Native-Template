@@ -4,7 +4,7 @@ import { SvgXml } from 'react-native-svg';
 
 // config
 import { colors, styles } from '../../config/styles'
-import { svgs } from '../../config/svgs'
+import { Logo, svgs } from '../../config/svgs'
 import { navigate } from '../../navigation/RootNavigation'
 import { validatePassword, validateEmail, validateInput } from '../../config/functions';
 
@@ -68,7 +68,7 @@ const LoginScreen = ({ navigation }) => {
     <Screen margins>
       {/* Header */}
       <View style={{ ...styles.center, marginVertical: 50 }}>
-        <SvgXml xml={svgs.logo} />
+        <Logo color='white' />
         <Text style={{ ...styles.h1, marginTop: 20 }} >Hello Again!</Text>
         <Text style={{ ...styles.h1 }} >You've been missed</Text>
       </View>

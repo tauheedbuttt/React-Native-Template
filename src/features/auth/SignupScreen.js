@@ -5,7 +5,7 @@ import CheckBox from '@react-native-community/checkbox';
 
 // config
 import { colors, height, styles, width } from '../../config/styles'
-import { svgs } from '../../config/svgs'
+import { Logo, svgs } from '../../config/svgs'
 import { navigate } from '../../navigation/RootNavigation'
 import { validatePassword, validateEmail, validateInput } from '../../config/functions';
 
@@ -106,7 +106,7 @@ const SignupScreen = () => {
   return (
     <Screen margins>
       <View style={{ ...styles.center, marginVertical: 50 }}>
-        <SvgXml xml={svgs.logo} />
+        <Logo color='white' />
         <Text style={{ ...styles.h1, marginTop: 20 }} >Hello Again!</Text>
         <Text style={{ ...styles.h1 }} >You've been missed</Text>
       </View>
