@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { SvgXml } from 'react-native-svg';
 
 // config
 import { colors, styles } from '../../config/styles'

@@ -4,7 +4,7 @@ import { SvgXml } from 'react-native-svg';
 
 // config
 import { colors, styles } from '../../config/styles'
-import { Logo, svgs } from '../../config/svgs'
+import { Logo, UserIcon, LockIcon } from '../../config/svgs'
 import { navigate } from '../../navigation/RootNavigation'
 import { validatePassword, validateEmail, validateInput } from '../../config/functions';
 
@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
     {
       placeholder: 'Email',
       value: credentials.email,
-      icon: <SvgXml xml={svgs.user} color={colors.white} />,
+      icon: <UserIcon color={colors.white} />,
       setValue: (value) => setCredentials({
         ...credentials,
         email: value
@@ -45,7 +45,7 @@ const LoginScreen = ({ navigation }) => {
     {
       placeholder: 'Password',
       value: credentials.password,
-      icon: <SvgXml xml={svgs.lock} color={colors.white} />,
+      icon: <LockIcon color={colors.white} />,
       setValue: (value) => setCredentials({
         ...credentials,
         password: value

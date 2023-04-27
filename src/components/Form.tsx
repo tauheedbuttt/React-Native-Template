@@ -1,8 +1,8 @@
-import { View, Text, TextInput, TouchableOpacity, ViewStyle, KeyboardTypeOptions, } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, ViewStyle, KeyboardTypeOptions, TextStyle, } from 'react-native'
 import React, { useRef } from 'react'
-import { SvgXml } from 'react-native-svg';
+import { SvgUri, SvgXml } from 'react-native-svg';
 
-import { svgs } from '../config/svgs';
+import { CloseEyeIcon, CloseIcon, OpenEyeIcon } from '../config/svgs';
 import { colors, styles } from '../config/styles';
 
 
@@ -21,6 +21,7 @@ interface ItemProps {
     icon?: JSX.Element | JSX.Element[],
     rightIcon?: JSX.Element | JSX.Element[],
     keyboardType?: KeyboardTypeOptions,
+    style: TextStyle
 
     onPress?: () => {},
     setValue: (data: any) => {},
@@ -28,17 +29,17 @@ interface ItemProps {
     setShow?: () => {},
 }
 interface FieldProps {
-    data: [ItemProps],
+    data?: ItemProps[],
     item: ItemProps,
-    refs: [React.LegacyRef<TextInput> | undefined],
-    index: number,
+    refs?: React.LegacyRef<TextInput>[] | undefined,
+    index?: number,
     style?: ViewStyle,
     total?: number
 }
 interface FormProps {
-    fields: [FieldProps],
+    fields?: FieldProps[],
     style?: ViewStyle,
-    fieldStyle: ViewStyle
+    fieldStyle?: ViewStyle
 }
 
 const Field = ({ item, refs, index, style, total }: FieldProps) => {
@@ -74,7 +75,7 @@ const Field = ({ item, refs, index, style, total }: FieldProps) => {
                     autoCapitalize={item.autoCapitalize ? item.autoCapitalize : undefined}
                     placeholder={item.placeholder}
                     placeholderTextColor={colors.border}
-                    style={styles.formInput}
+                    style={{ ...styles.formInput, ...item.style }}
                     secureTextEntry={isPassword ? item.show : false}
                     keyboardType={item.keyboardType}
                     multiline={item.multiline}
@@ -84,12 +85,16 @@ const Field = ({ item, refs, index, style, total }: FieldProps) => {
                     isPassword
                         ?
                         <TouchableOpacity onPress={item.setShow} activeOpacity={0.5}>
-                            <SvgXml xml={item.show ? svgs.close_eye : svgs.open_eye} height={20} width={20} color={colors.primaryText} />
+                            {
+                                !item.show
+                                    ? <CloseEyeIcon height={20} width={20} color={styles.formInput.color} />
+                                    : <OpenEyeIcon height={20} width={20} color={styles.formInput.color} />
+                            }
                         </TouchableOpacity>
                         :
                         item.value == '' || !item.value || item.onPress ? null :
                             <TouchableOpacity onPress={() => item?.setValue('')} style={{ padding: 5 }} activeOpacity={0.7}>
-                                <SvgXml xml={svgs.close} color={'black'} width={10} height={10} />
+                                <CloseIcon color={styles.formInput.color} width={10} height={10} />
                             </TouchableOpacity>
                 }
                 {item.rightIcon}

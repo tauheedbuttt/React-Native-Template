@@ -5,7 +5,7 @@ import CheckBox from '@react-native-community/checkbox';
 
 // config
 import { colors, height, styles, width } from '../../config/styles'
-import { Logo, svgs } from '../../config/svgs'
+import { Logo, MailIcon, LockIcon } from '../../config/svgs'
 import { navigate } from '../../navigation/RootNavigation'
 import { validatePassword, validateEmail, validateInput } from '../../config/functions';
 
@@ -62,7 +62,7 @@ const SignupScreen = () => {
     {
       placeholder: 'Email',
       value: credentials.email,
-      icon: <SvgXml xml={svgs.mail} color={colors.white} />,
+      icon: <MailIcon color={colors.white} />,
       setValue: (value) => setCredentials({
         ...credentials,
         email: value
@@ -74,14 +74,13 @@ const SignupScreen = () => {
     {
       placeholder: 'Password',
       value: credentials.password,
-      icon: <SvgXml xml={svgs.lock} color={colors.white} />,
+      icon: <LockIcon color={colors.white} />,
       setValue: (value) => setCredentials({
         ...credentials,
         password: value
       }),
-      error: credentials.email ? 'Password must be of at least 8 length and needs to have 1 Uppercase letter, 1 Lowercase letter, 1 symbol and 1 number' : 'Enter Password',
+      error: credentials.password ? 'Password must be of at least 8 length and needs to have 1 Uppercase letter, 1 Lowercase letter, 1 symbol and 1 number' : 'Enter Password',
       isValid: validatePassword(credentials.password),
-      onSubmit: onSubmit,
       show: showPass,
       setShow: () => setShowPass(!showPass),
       autoCapitalize: 'none'
@@ -89,13 +88,13 @@ const SignupScreen = () => {
     {
       placeholder: 'Confirm Password',
       value: credentials.confirmPassword,
-      icon: <SvgXml xml={svgs.lock} color={colors.white} />,
+      icon: <LockIcon color={colors.white} />,
       setValue: (value) => setCredentials({
         ...credentials,
         confirmPassword: value
       }),
-      error: credentials.email ? 'Password must be of at least 8 length and needs to have 1 Uppercase letter, 1 Lowercase letter, 1 symbol and 1 number' : 'Enter Password',
-      isValid: credentials.confirmPassword != credentials.password,
+      error: credentials.confirmPassword ? 'Confirm Password does not match the password' : 'Enter Password',
+      isValid: credentials.confirmPassword == credentials.password,
       onSubmit: onSubmit,
       show: showPass,
       setShow: () => setShowPass(!showPass),
@@ -130,8 +129,8 @@ const SignupScreen = () => {
       {/* Submit Button */}
       <View style={{ ...styles.submitContainer, marginTop: 35 }}>
         {
-          !error ? null :
-            <Text style={styles.error}>{error}</Text>
+          !errorMessage ? null :
+            <Text style={styles.error}>{errorMessage}</Text>
         }
         <SubmitButton
           title={'Sign up'}
