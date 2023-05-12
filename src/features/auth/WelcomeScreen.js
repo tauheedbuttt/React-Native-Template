@@ -17,8 +17,9 @@ const WelcomeScreen = () => {
                 <WelcomeIcon />
             </View>
             <View style={{ flex: 1 }}>
-                <Text style={styles.h1}>Welcome to AI Chatbot</Text>
-                <Text style={styles.p}>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Text>
+                <Text style={styles.h1}>Welcome to FinanceBook</Text>
+                <Text style={styles.p}>The easiest way to create unlimited and
+                    customized online forms</Text>
                 <View style={{ flex: 1, justifyContent: 'flex-end', marginBottom: 25 }}>
                     <SubmitButton title='Sign in' onPress={() => navigate('LoginScreen')} />
                 </View>

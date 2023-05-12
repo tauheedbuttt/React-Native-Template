@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { SvgXml } from 'react-native-svg';
 
 
-import { svgs } from '../config/svgs';
+import { HomeIcon, svgs } from '../config/svgs';
 import { colors, styles } from '../config/styles';
 
 // Navigators
@@ -23,7 +23,7 @@ const MainTabs = () => {
       headerShadowVisible: false
     }}>
       <Tabs.Screen name='HomeStack' component={HomeStack} options={{
-        tabBarIcon: ({ color }) => <SvgXml xml={svgs.home} height={20} width={20} color={color} />,
+        tabBarIcon: ({ color }) => <HomeIcon height={20} width={20} color={color} />,
         tabBarLabel: 'Home',
       }} />
     </Tabs.Navigator>
