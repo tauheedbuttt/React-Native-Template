@@ -18,7 +18,7 @@ const Screen = ({ children, style, onScroll, onRefresh, margins }: ScreenProps) 
   const [refresh, setRefresh] = useState(false);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: colors.primary, ...appMargins }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.primary }}>
       <KeyboardAwareScrollView
         keyboardShouldPersistTaps={"handled"}
         contentContainerStyle={{ flexGrow: 1 }}
@@ -40,7 +40,7 @@ const Screen = ({ children, style, onScroll, onRefresh, margins }: ScreenProps) 
           />
         }
       >
-        <View style={{ ...styles.screen, ...style }}>
+        <View style={{ ...styles.screen, ...style, ...appMargins }}>
           {children}
         </View>
       </KeyboardAwareScrollView>

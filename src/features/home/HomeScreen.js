@@ -10,7 +10,7 @@ import Screen from '../../components/Screen'
 const HomeScreen = () => {
 
   return (
-    <Screen onScroll={onScroll}>
+    <Screen>
       <View style={styles.screenMargins}>
         <Text>Yo</Text>
       </View>
